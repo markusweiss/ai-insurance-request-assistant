@@ -1,4 +1,4 @@
-from mistralai import Mistral
+from mistralai.client import Mistral
 
 from app.config import settings
 from app.prompts import SYSTEM_PROMPT
