@@ -68,6 +68,6 @@ Der Test nutzt einen Fake-Service und benötigt keinen API-Key.
 ## Weitere geplante Ausbaustufen
 
 - [ ] Tests mit repräsentativen synthetischen Fällen und Qualitätsmetriken
-- [ ]  Regelbasierte Plausibilitätsprüfungen ergänzen
+- [ ] Regelbasierte Plausibilitätsprüfungen ergänzen
 - [ ] Kontrollierte Python-Funktion für Pflichtfeldprüfung / Routing
 - [ ] Optional: kleines React-Frontend mit menschlicher Freigabe
