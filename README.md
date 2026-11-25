@@ -9,7 +9,7 @@ Deutschsprachiger Portfolio-Prototyp zur Vorqualifizierung fiktiver Kundenanfrag
 - Erkennung fehlender Informationen
 - Zusammenfassung und Vorschlag für den nächsten Bearbeitungsschritt
 - Validierte strukturierte Antwort via Pydantic
-- Menschliche Prüfung ist immer erforderlich
+- **Menschliche Prüfung ist immer erforderlich!!**
 
 **Wichtige Grenzen:** keine Verbindung zu Vertragsverwaltungssystemen, keine Prüfung des tatsächlichen Vertragsstatus, keine Deckungs- oder Leistungsentscheidung. Nur synthetische Beispieldaten verwenden.
 
@@ -37,7 +37,9 @@ cp .env.example .env
 
 ## API Key Wichtig!!
 
-Trage deinen zuvor angelegten Schlüssel in `.env` ein. Die Datei ist durch `.gitignore` ausgeschlossen und darf nicht committed werden.
+Trage den zuvor angelegten Schlüssel in `.env` ein. 
+`.env.example` liegt bei. 
+Die Datei ist durch `.gitignore` ausgeschlossen und darf nicht committed werden.
 
 ## Start
 
