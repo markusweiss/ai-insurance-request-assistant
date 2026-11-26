@@ -9,7 +9,7 @@ Deutschsprachiger Portfolio-Prototyp zur Vorqualifizierung fiktiver Kundenanfrag
 - Erkennung fehlender Informationen
 - Zusammenfassung und Vorschlag für den nächsten Bearbeitungsschritt
 - Validierte strukturierte Antwort via Pydantic
-<br><br>
+
 > **Hinweis:** Die Ausgabe ist ein Vorschlag. Eine menschliche Prüfung
 > ist immer erforderlich.
 
