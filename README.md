@@ -13,6 +13,29 @@ Deutschsprachiger Portfolio-Prototyp zur Vorqualifizierung fiktiver Kundenanfrag
 
 **Wichtige Grenzen:** keine Verbindung zu Vertragsverwaltungssystemen, keine Prüfung des tatsächlichen Vertragsstatus, keine Deckungs- oder Leistungsentscheidung. Nur synthetische Beispieldaten verwenden.
 
+## Hintergrund und Nutzen
+
+**Problem:** Kundenanfragen im Vertragsservice kommen meist unstrukturiert
+an, per E-Mail oder Freitext-Formular. Bevor die eigentliche Bearbeitung
+beginnt, muss jemand die Nachricht lesen, das Anliegen einordnen, die
+Dringlichkeit einschätzen, fehlende Angaben erkennen und gegebenenfalls
+Rückfragen stellen. Das kostet Zeit und führt zu Fehl-Zuordnungen.
+
+**Idee:** Der Prototyp übernimmt diese Vorqualifizierung. Er liefert zu
+jeder Anfrage eine strukturierte Einschätzung (Anliegen, Dringlichkeit,
+extrahierte Angaben, fehlende Informationen, Vorschlag für den nächsten
+Schritt). Die Entscheidung bleibt immer bei der Sachbearbeitung.
+
+**Mögliche Erfolgsmessung** (Hypothesen für einen echten Einsatz, hier
+nicht gemessen):
+
+| Kennzahl | Fragestellung |
+|---|---|
+| Bearbeitungszeit bis zur ersten Reaktion | Sinkt die Zeit für die Vorqualifizierung? |
+| Routing-Genauigkeit | Wie oft landet eine Anfrage direkt beim richtigen Team? |
+| Rückfragequote | Werden fehlende Angaben früher erkannt? |
+| Korrekturquote | Wie oft ändert die Sachbearbeitung den KI-Vorschlag? |
+
 ## Voraussetzungen
 
 - Python 3.11+
