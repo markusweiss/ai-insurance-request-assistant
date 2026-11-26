@@ -9,7 +9,9 @@ Deutschsprachiger Portfolio-Prototyp zur Vorqualifizierung fiktiver Kundenanfrag
 - Erkennung fehlender Informationen
 - Zusammenfassung und Vorschlag für den nächsten Bearbeitungsschritt
 - Validierte strukturierte Antwort via Pydantic
-- **Menschliche Prüfung ist immer erforderlich!!**
+<br><br>
+> **Hinweis:** Die Ausgabe ist ein Vorschlag. Eine menschliche Prüfung
+> ist immer erforderlich.
 
 **Wichtige Grenzen:** keine Verbindung zu Vertragsverwaltungssystemen, keine Prüfung des tatsächlichen Vertragsstatus, keine Deckungs- oder Leistungsentscheidung. Nur synthetische Beispieldaten verwenden.
 
@@ -45,24 +47,19 @@ nicht gemessen):
 
 ```bash
 
-#python -m venv .venv
-
 # macOS/Linux:
 python3.11 -m venv .venv
 source .venv/bin/activate
-
-# Windows PowerShell:
-# .venv\Scripts\Activate.ps1
 
 python -m pip install -e ".[dev]"
 cp .env.example .env
 ```
 
-## API Key Wichtig!!
+## API-Key konfigurieren
 
-Trage den zuvor angelegten Schlüssel in `.env` ein. 
-`.env.example` liegt bei. 
-Die Datei ist durch `.gitignore` ausgeschlossen und darf nicht committed werden.
+Lege in [Mistral Studio](https://console.mistral.ai) einen API-Key an und
+trage ihn in der Datei `.env` ein (Vorlage: `.env.example`). Die `.env` ist
+über `.gitignore` ausgeschlossen und darf **nicht** committed werden.
 
 ## Start
 
