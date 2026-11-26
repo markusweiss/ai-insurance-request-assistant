@@ -15,6 +15,28 @@ Deutschsprachiger Portfolio-Prototyp zur Vorqualifizierung fiktiver Kundenanfrag
 
 **Wichtige Grenzen:** keine Verbindung zu Vertragsverwaltungssystemen, keine Prüfung des tatsächlichen Vertragsstatus, keine Deckungs- oder Leistungsentscheidung. Nur synthetische Beispieldaten verwenden.
 
+## Architektur
+
+```mermaid
+flowchart LR
+    A["Kundenanfrage<br/>Betreff und Nachricht"] --> B["REST-Endpunkt<br/>POST /api/v1/requests/analyze"]
+    B --> C["Analyse-Service"]
+    C --> D["Mistral API<br/>LLM-Analyse"]
+    D --> E["Pydantic-Validierung<br/>strukturierte Antwort"]
+    E --> F["JSON-Ergebnis<br/>Anliegen, Dringlichkeit, fehlende Angaben,<br/>Zusammenfassung, nächster Schritt"]
+    F --> G["Menschliche Prüfung<br/>Sachbearbeitung entscheidet"]
+```
+
+**Designentscheidungen:**
+
+- **Strukturierte Ausgabe statt Freitext:** Die Antwort des Modells wird mit
+  Pydantic validiert. Ungültige Antworten werden abgefangen, bevor sie
+  weiterverarbeitet werden.
+- **Mensch entscheidet:** Das System liefert einen Vorschlag. Es gibt keine
+  Deckungs- oder Leistungsentscheidung und keine Anbindung an Vertragssysteme.
+- **Austauschbarer Service:** Die Analyse liegt hinter einer Service-Schicht.
+  Dadurch lassen sich Tests mit einem Fake-Service ohne API-Key ausführen.
+
 ## Hintergrund und Nutzen
 
 **Problem:** Kundenanfragen im Vertragsservice kommen meist unstrukturiert
