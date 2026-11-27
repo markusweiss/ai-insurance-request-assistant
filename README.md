@@ -107,6 +107,23 @@ pytest
 
 Der Test nutzt einen Fake-Service und benötigt keinen API-Key.
 
+## Evaluation
+
+Zusätzlich zu den Unit-Tests gibt es eine kleine Evaluation der Modellqualität
+mit synthetischen Anfragen (`evaluation/llmcases.json`). Sie ruft die echte
+Mistral API auf und benötigt daher einen gültigen API-Key in der `.env`.
+
+Mit aktivierter virtueller Umgebung (`source .venv/bin/activate`):
+
+```bash
+python -m evaluation.run_eval
+```
+
+Geprüft werden Dringlichkeit, extrahierte Vertragsnummer und das Erkennen
+fehlender Angaben. Die Ergebnisse sind eine Momentaufnahme und keine
+Qualitätsgarantie, da LLM-Antworten variieren können.
+
+
 ## Weitere geplante Ausbaustufen
 
 - [ ] Tests mit repräsentativen synthetischen Fällen und Qualitätsmetriken
