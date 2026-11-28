@@ -13,7 +13,7 @@ def normalize(value: str | None) -> str | None:
     return value.strip().upper() if value else None
 
 
-def evaluate_case(analyzer: MistralAnalyzer, case: dict) -> dict:
+def evaluate_case(analyzer: MistralAnalyzer, case: dict) -> tuple[dict, list[str]]:
     request = RequestAnalysisInput(subject=case["subject"], message=case["message"])
     result = analyzer.analyze(request)
     expected = case["expected"]
@@ -28,10 +28,11 @@ def evaluate_case(analyzer: MistralAnalyzer, case: dict) -> dict:
         "policy_number": normalize(expected["policy_number"]),
         "has_missing_information": expected["has_missing_information"],
     }
-    return {
+    checks = {
         field: {"ok": actual[field] == wanted[field], "actual": actual[field], "wanted": wanted[field]}
         for field in FIELDS
     }
+    return checks, result.missing_information
 
 
 def main() -> None:
@@ -43,7 +44,7 @@ def main() -> None:
     for case in cases:
         print(f"\n{case['id']}")
         try:
-            checks = evaluate_case(analyzer, case)
+            checks, missing = evaluate_case(analyzer, case)
         except Exception as exc:
             print(f"  FEHLER: {exc}")
             continue
@@ -55,6 +56,9 @@ def main() -> None:
                 print(f"  OK    {field}")
             else:
                 print(f"  FALSCH {field}: erwartet={check['wanted']!r}, erhalten={check['actual']!r}")
+
+        if not checks["has_missing_information"]["ok"]:
+            print(f"  missing_information: {missing}")
 
     print("\n--- Ergebnis ---")
     print(f"Ausgewertete Fälle: {evaluated} von {len(cases)}")
