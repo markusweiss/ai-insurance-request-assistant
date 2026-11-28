@@ -36,7 +36,7 @@
     "expected": {
       "urgency": "normal",
       "policy_number": "VN-200567",
-      "has_missing_information": false
+      "has_missing_information": true
     }
   },
   {
